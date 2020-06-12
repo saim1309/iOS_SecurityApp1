@@ -14,21 +14,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var password: UITextField!
     
-    
-    
-    func regiterUser(username:String, password:String){
-        var users = [String:String]()
-        users["admin"] = "admin123";
-        users[username] = password;
-        for item in users {
-            print(item)
-        }
-        
-           
-    }
-    
-   
-    
+
 
     
     override func viewDidLoad() {
@@ -39,14 +25,38 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil);
+        
     }
-
-    @IBAction func loginPressed(_ sender: UIButton) {
-        print("username ",username.text!)
-        print("password ", password.text!)
-        regiterUser(username:username.text!,password:password.text!);
+    func checkUser(username:String, password: String)->Bool{
+        for(key,value) in users{
+            if(username==key && password==value){
+                return true;
+            }
+        }
+        return false;
     }
     
+    @IBAction func loginPressed(_ sender: UIButton) {
+        print("username ",username.text!);
+        print("password ", password.text!);
+        let result:Bool = checkUser(username: username.text!,password: password.text!)
+        if(result == true){
+            //user is registered
+            showAlert(title: "Login Success", message: "Cograts!")
+        }
+        else{
+            showAlert(title: "Login Failed", message: "Check your email and password!")
+        }
+        
+    }
+    
+    func showAlert(title:String, message:String) {
+        let alertController = UIAlertController(title: title, message:
+        message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
+
+        self.present(alertController, animated: true, completion: nil)
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         username.resignFirstResponder()
         password.resignFirstResponder()

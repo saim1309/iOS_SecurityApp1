@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+var users = [String:String]()
 class SignUpViewController: UIViewController {
 
     @IBOutlet weak var firstName: UITextField!
@@ -29,6 +29,7 @@ class SignUpViewController: UIViewController {
         email.delegate = self
         password.delegate = self
         confirmPassword.delegate = self
+        users["admin"] = "admin123";
         
         // Do any additional setup after loading the view.
         
@@ -56,14 +57,35 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    
+    
     func regiterUser(username:String, password:String){
-        var users = [String:String]()
-        users["admin"] = "admin123";
-        users[username] = password;
-        for item in users {
-            print(item)
+        
+        var isAlreadyRegistered:Bool = false;
+        for(key,_) in users{
+            //print("Users[username]"+users[username]! ?? " No username")
+            if(username==key){
+                print("email already registered");
+                isAlreadyRegistered = true;
+                showAlert(title: "Registeration Failed",message: "Email already registered");
+                break;
+            }
         }
+        //print("checking value\(isAlreadyRegistered)");
+        if(isAlreadyRegistered == false){
+            users[username] = password;
+            print(users[username]!);
+            showAlert(title: "Registeration Complete",message: "Go to login page to login");
+        }
+        
+//        for(key,value) in users{
+//            print("key: \(key) and its value: \(value)");
+//        }
+
+        
+            
     }
+    
 
     
     func showAlert(title:String, message:String) {
@@ -96,7 +118,7 @@ class SignUpViewController: UIViewController {
             showAlert(title: "Password Mismatch",message: "Enter password should match");
             return false;
         }
-        else if(passwordStr.count <= 5 && confirmPasswordStr.count <= 5){
+        else if(passwordStr.count < 5 && confirmPasswordStr.count < 5){
             showAlert(title: "Password Length",message: "password length should be min 5 charecters");
             return false;
         }
@@ -123,7 +145,7 @@ class SignUpViewController: UIViewController {
             print("firstName: \(firstName.text!)\nlastName: \(lastName.text!)\nemail: \(email.text!)\npassword: \(password.text!)\nconfirmpassword: \(confirmPassword.text!)");
             regiterUser(username: emailStr, password: passwordStr);
             clearSignUpPage();
-            showAlert(title: "Register Complete",message: "Go to login page to login");
+            //showAlert(title: "Register Complete",message: "Go to login page to login");
             
         }
         else{
