@@ -16,6 +16,7 @@
 		91E3BBFD2480694300CF4EFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91E3BBFB2480694300CF4EFE /* LaunchScreen.storyboard */; };
 		91E3BC082480694400CF4EFE /* sampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E3BC072480694400CF4EFE /* sampleTests.swift */; };
 		91E3BC132480694400CF4EFE /* sampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E3BC122480694400CF4EFE /* sampleUITests.swift */; };
+		C88BD9A824943FC200489E2C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88BD9A724943FC200489E2C /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		91E3BC0E2480694400CF4EFE /* sampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		91E3BC122480694400CF4EFE /* sampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sampleUITests.swift; sourceTree = "<group>"; };
 		91E3BC142480694400CF4EFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C88BD9A724943FC200489E2C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				91E3BBFB2480694300CF4EFE /* LaunchScreen.storyboard */,
 				91E3BBFE2480694300CF4EFE /* Info.plist */,
 				4FB6CF5024932941006C4AF2 /* SignUpViewController.swift */,
+				C88BD9A724943FC200489E2C /* HomeViewController.swift */,
 			);
 			path = sample;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C88BD9A824943FC200489E2C /* HomeViewController.swift in Sources */,
 				91E3BBF52480694000CF4EFE /* ViewController.swift in Sources */,
 				91E3BBF12480694000CF4EFE /* AppDelegate.swift in Sources */,
 				4FB6CF5124932941006C4AF2 /* SignUpViewController.swift in Sources */,

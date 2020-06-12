@@ -78,9 +78,9 @@ class SignUpViewController: UIViewController {
             showAlert(title: "Registeration Complete",message: "Go to login page to login");
         }
         
-//        for(key,value) in users{
-//            print("key: \(key) and its value: \(value)");
-//        }
+        for(key,value) in users{
+            print("key: \(key) and its value: \(value)");
+        }
 
         
             

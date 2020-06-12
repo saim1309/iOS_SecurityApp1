@@ -42,7 +42,10 @@ class ViewController: UIViewController {
         let result:Bool = checkUser(username: username.text!,password: password.text!)
         if(result == true){
             //user is registered
-            showAlert(title: "Login Success", message: "Cograts!")
+            //showAlert(title: "Login Success", message: "Cograts!")
+            print("Login success")
+            //    performSegue(withIdentifier: "home", sender: self)
+           
         }
         else{
             showAlert(title: "Login Failed", message: "Check your email and password!")

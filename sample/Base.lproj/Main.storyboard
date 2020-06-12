@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bHn-vf-Xwh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bHn-vf-Xwh">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -45,6 +45,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OnU-qQ-OZP"/>
+                                    <segue destination="PRX-C2-Rpz" kind="show" identifier="home" id="YxX-FK-Z1A"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEk-B6-j3E">
@@ -54,14 +55,6 @@
                                 <color key="highlightedColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="shadowColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ltj-ed-KN5">
-                                <rect key="frame" x="279" y="463" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="PRX-C2-Rpz" kind="show" id="vEN-06-Thf"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -200,10 +193,10 @@
             </objects>
             <point key="canvasLocation" x="881" y="805"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="AjC-xh-fNJ">
             <objects>
-                <viewController id="PRX-C2-Rpz" sceneMemberID="viewController">
+                <viewController id="PRX-C2-Rpz" customClass="HomeViewController" customModule="sample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ttS-xK-87f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -222,6 +215,9 @@
                                     <constraint firstAttribute="height" constant="100" id="RfI-Hs-3ZK"/>
                                 </constraints>
                                 <state key="normal" title="Clock In/Out" backgroundImage="clockInOut"/>
+                                <connections>
+                                    <action selector="clockInOutPressed:" destination="PRX-C2-Rpz" eventType="touchUpInside" id="AGS-mV-prh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2x-eK-aWU">
                                 <rect key="frame" x="250" y="202" width="100" height="100"/>
@@ -230,6 +226,9 @@
                                     <constraint firstAttribute="width" constant="100" id="Xhz-4Z-CqE"/>
                                 </constraints>
                                 <state key="normal" title="Scedule" backgroundImage="schedule"/>
+                                <connections>
+                                    <action selector="schedulePressed:" destination="PRX-C2-Rpz" eventType="touchUpInside" id="s37-Nl-rO1"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clock In/Out" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNN-LG-II2">
                                 <rect key="frame" x="15" y="312" width="120" height="26.5"/>
@@ -250,6 +249,9 @@
                                     <constraint firstAttribute="height" constant="100" id="ptD-XZ-2gg"/>
                                 </constraints>
                                 <state key="normal" title="Flashlight" backgroundImage="flashlight"/>
+                                <connections>
+                                    <action selector="flashlightPressed:" destination="PRX-C2-Rpz" eventType="touchUpInside" id="MOU-PM-12v"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6e-kw-tpw">
                                 <rect key="frame" x="250" y="368.5" width="100" height="100"/>
@@ -258,6 +260,9 @@
                                     <constraint firstAttribute="height" constant="100" id="ghL-yk-2sb"/>
                                 </constraints>
                                 <state key="normal" title="Panic" backgroundImage="panic"/>
+                                <connections>
+                                    <action selector="panicPressed:" destination="PRX-C2-Rpz" eventType="touchUpInside" id="qyL-Y2-4Lw"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flash Light" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZT-4j-ZW9">
                                 <rect key="frame" x="15" y="488.5" width="104.5" height="26.5"/>
