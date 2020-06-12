@@ -31,18 +31,31 @@ class SignUpViewController: UIViewController {
         confirmPassword.delegate = self
         
         // Do any additional setup after loading the view.
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil);
+         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil);
+         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil);
+    }//end of viewDidLoad
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillShowNotification , object: nil)
+        NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillChangeFrameNotification , object: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func keyboardWillChange(notification: Notification){
+        print("keyboard will show:\(notification.name.rawValue)")
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else{
+            return
+        }
+        if(notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification){
+            view.frame.origin.y = -keyboardSize.height
+        }
+        else{
+            view.frame.origin.y = 0
+        }
     }
-    */
+    
     func showAlert(title:String, message:String) {
         let alertController = UIAlertController(title: title, message:
         message, preferredStyle: .alert)
@@ -85,7 +98,7 @@ class SignUpViewController: UIViewController {
             return true;
         }
         
-    }
+    }//end of validation input
     
     @IBAction func signupPressed(_ sender: UIButton) {
         let firstNameStr:String = firstName.text!;
@@ -107,7 +120,7 @@ class SignUpViewController: UIViewController {
             showAlert(title: "Registeration Failed",message: "Please try again!");
         }
         
-    }
+    }//end of function signUpPressed
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         firstName.resignFirstResponder()

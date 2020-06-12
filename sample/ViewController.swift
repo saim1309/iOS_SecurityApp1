@@ -19,6 +19,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         username.delegate = self
         password.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil);
     }
 
     @IBAction func loginPressed(_ sender: UIButton) {
@@ -30,6 +34,26 @@ class ViewController: UIViewController {
         username.resignFirstResponder()
         password.resignFirstResponder()
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillShowNotification , object: nil)
+        NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillChangeFrameNotification , object: nil)
+    }
+    
+    @objc func keyboardWillChange(notification: Notification){
+        print("keyboard will show:\(notification.name.rawValue)")
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else{
+            return
+        }
+        if(notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification){
+            view.frame.origin.y = -keyboardSize.height
+        }
+        else{
+            view.frame.origin.y = 0
+        }
+    }
+    
 }
 
 extension ViewController: UITextFieldDelegate{
