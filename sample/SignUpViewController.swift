@@ -20,6 +20,8 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var confirmPassword: UITextField!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         firstName.delegate = self
@@ -27,6 +29,7 @@ class SignUpViewController: UIViewController {
         email.delegate = self
         password.delegate = self
         confirmPassword.delegate = self
+        
         // Do any additional setup after loading the view.
     }
     
@@ -40,17 +43,68 @@ class SignUpViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    func validateInput(firstName: UITextField) -> Bool{
-            return true
+    func showAlert(title:String, message:String) {
+        let alertController = UIAlertController(title: title, message:
+        message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
+
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func clearSignUpPage(){
+        firstName.text! = "";
+        lastName.text! = "";
+        email.text! = "";
+        password.text! = "";
+        confirmPassword.text! = "";
+    }
+    
+    func validateInput(firstNameStr: String, lastNameStr:String, emailStr:String, passwordStr:String, confirmPasswordStr:String) -> Bool{
+        
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}";
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx);
+        var emailValidation:Bool =  emailPred.evaluate(with: emailStr);
+        
+        if(firstNameStr == "" || lastNameStr == "" || emailStr == "" || passwordStr == "" || confirmPasswordStr == ""){
+            showAlert(title: "Empty Fields",message: "All fields are mandatory");
+            return false;
+        }
+        else if(passwordStr != confirmPasswordStr) {
+            showAlert(title: "Password Mismatch",message: "Enter password should match");
+            return false;
+        }
+        else if(passwordStr.count <= 5 && confirmPasswordStr.count <= 5){
+            showAlert(title: "Password Length",message: "password length should be min 5 charecters");
+            return false;
+        }
+        else if(!emailValidation){
+            showAlert(title: "Email Validation",message: "Enter valid email address");
+            return false;
+        }
+        else{
+            return true;
+        }
+        
     }
     
     @IBAction func signupPressed(_ sender: UIButton) {
-        var validationPassed:Bool =  validateInput(firstName: firstName);
+        let firstNameStr:String = firstName.text!;
+        let lastNameStr:String = lastName.text!;
+        let emailStr:String = email.text!;
+        let passwordStr:String = password.text!;
+        let confirmPasswordStr:String = confirmPassword.text!;
+        
+        var validationPassed:Bool =  validateInput(firstNameStr: firstNameStr,lastNameStr: lastNameStr,emailStr: emailStr,passwordStr: passwordStr,confirmPasswordStr: confirmPasswordStr);
+        
         if(validationPassed){
             print("firstName: \(firstName.text!)\nlastName: \(lastName.text!)\nemail: \(email.text!)\npassword: \(password.text!)\nconfirmpassword: \(confirmPassword.text!)");
+            clearSignUpPage();
+            showAlert(title: "Register Complete",message: "Go to login page to login");
+            
         }
         else{
             print("Validation failed");
+            showAlert(title: "Registeration Failed",message: "Please try again!");
         }
         
     }
