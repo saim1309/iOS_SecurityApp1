@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FB6CF5124932941006C4AF2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6CF5024932941006C4AF2 /* SignUpViewController.swift */; };
 		91E3BBF12480694000CF4EFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E3BBF02480694000CF4EFE /* AppDelegate.swift */; };
 		91E3BBF32480694000CF4EFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E3BBF22480694000CF4EFE /* SceneDelegate.swift */; };
 		91E3BBF52480694000CF4EFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E3BBF42480694000CF4EFE /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4FB6CF5024932941006C4AF2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		91E3BBED2480694000CF4EFE /* sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91E3BBF02480694000CF4EFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91E3BBF22480694000CF4EFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,10 +81,10 @@
 		91E3BBE42480694000CF4EFE = {
 			isa = PBXGroup;
 			children = (
+				91E3BBEE2480694000CF4EFE /* Products */,
 				91E3BBEF2480694000CF4EFE /* sample */,
 				91E3BC062480694400CF4EFE /* sampleTests */,
 				91E3BC112480694400CF4EFE /* sampleUITests */,
-				91E3BBEE2480694000CF4EFE /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +108,7 @@
 				91E3BBF92480694300CF4EFE /* Assets.xcassets */,
 				91E3BBFB2480694300CF4EFE /* LaunchScreen.storyboard */,
 				91E3BBFE2480694300CF4EFE /* Info.plist */,
+				4FB6CF5024932941006C4AF2 /* SignUpViewController.swift */,
 			);
 			path = sample;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			files = (
 				91E3BBF52480694000CF4EFE /* ViewController.swift in Sources */,
 				91E3BBF12480694000CF4EFE /* AppDelegate.swift in Sources */,
+				4FB6CF5124932941006C4AF2 /* SignUpViewController.swift in Sources */,
 				91E3BBF32480694000CF4EFE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

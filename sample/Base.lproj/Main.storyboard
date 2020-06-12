@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bHn-vf-Xwh">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="880.79999999999995" y="94.902548725637189"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="1nF-dn-gAZ">
             <objects>
-                <viewController id="YBS-ov-5Zz" sceneMemberID="viewController">
+                <viewController id="YBS-ov-5Zz" customClass="SignUpViewController" customModule="sample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OPs-8v-b8n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -141,6 +141,9 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="signupPressed:" destination="YBS-ov-5Zz" eventType="touchUpInside" id="x0L-bQ-wes"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d3c-95-Yeq">
                                 <rect key="frame" x="50" y="424" width="275" height="34"/>
@@ -183,6 +186,13 @@
                         <viewLayoutGuide key="safeArea" id="Kr6-5A-3cL"/>
                     </view>
                     <navigationItem key="navigationItem" id="Jkk-OH-yWL"/>
+                    <connections>
+                        <outlet property="confirmPassword" destination="kmO-Mr-I0R" id="7IE-s9-CQR"/>
+                        <outlet property="email" destination="CJC-vI-2Xs" id="esj-22-z2x"/>
+                        <outlet property="firstName" destination="Ury-0g-XPX" id="ZxF-rB-O9M"/>
+                        <outlet property="lastName" destination="y09-9f-1ag" id="ePg-SC-KWO"/>
+                        <outlet property="password" destination="d3c-95-Yeq" id="bjx-Te-ims"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MRS-kr-yB7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -280,6 +290,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="bHn-vf-Xwh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1W4-Nb-Kcr">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
