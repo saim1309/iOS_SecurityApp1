@@ -56,6 +56,16 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    func regiterUser(username:String, password:String){
+        var users = [String:String]()
+        users["admin"] = "admin123";
+        users[username] = password;
+        for item in users {
+            print(item)
+        }
+    }
+
+    
     func showAlert(title:String, message:String) {
         let alertController = UIAlertController(title: title, message:
         message, preferredStyle: .alert)
@@ -111,6 +121,7 @@ class SignUpViewController: UIViewController {
         
         if(validationPassed){
             print("firstName: \(firstName.text!)\nlastName: \(lastName.text!)\nemail: \(email.text!)\npassword: \(password.text!)\nconfirmpassword: \(confirmPassword.text!)");
+            regiterUser(username: emailStr, password: passwordStr);
             clearSignUpPage();
             showAlert(title: "Register Complete",message: "Go to login page to login");
             

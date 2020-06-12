@@ -15,6 +15,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     
     
+    
+    func regiterUser(username:String, password:String){
+        var users = [String:String]()
+        users["admin"] = "admin123";
+        users[username] = password;
+        for item in users {
+            print(item)
+        }
+        
+           
+    }
+    
+   
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         username.delegate = self
@@ -28,6 +44,7 @@ class ViewController: UIViewController {
     @IBAction func loginPressed(_ sender: UIButton) {
         print("username ",username.text!)
         print("password ", password.text!)
+        regiterUser(username:username.text!,password:password.text!);
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
