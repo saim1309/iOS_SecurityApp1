@@ -56,7 +56,7 @@ class SignUpViewController: UIViewController {
         }
         //when keyboard is made visible changinf y origin of frame according to size of keyboard
         if(notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification){
-            view.frame.origin.y = -keyboardSize.height
+            view.frame.origin.y = -keyboardSize.height+100
         }
         //when keyboard is not used changing back the frame orgin to 0
         else{
