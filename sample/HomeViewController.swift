@@ -16,13 +16,21 @@ class HomeViewController: UIViewController {
         
     }//end of viewDidLoad
     
+    //function to switch on/off flash light
     func toggleFlash() {
+        //Guard let to capture early functions returns
+        //AvCapture to access hardware features of the device
+        //setting hardware controls/features of the repsective device into 'device'
         guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
+        
+        //checking whether device has torch or not
         guard device.hasTorch else { return }
 
         do {
+            //to handle and configure hardware controls
             try device.lockForConfiguration()
 
+            //setting button for turning on and off torch
             if (device.torchMode == AVCaptureDevice.TorchMode.on) {
                 device.torchMode = AVCaptureDevice.TorchMode.off
             } else {
@@ -33,6 +41,7 @@ class HomeViewController: UIViewController {
                 }
             }
 
+            //to release the lockForConfiguration
             device.unlockForConfiguration()
         } catch {
             print(error)
@@ -41,7 +50,7 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func clockInOutPressed(_ sender: UIButton) {
-        print("clock in out pressed")
+        print("clock in out pressed");
     }
     
     @IBAction func schedulePressed(_ sender: UIButton) {

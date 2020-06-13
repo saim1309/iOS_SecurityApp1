@@ -193,6 +193,60 @@
             </objects>
             <point key="canvasLocation" x="881" y="805"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="IDu-zi-PP9">
+            <objects>
+                <viewController id="pJV-av-Jjc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kbJ-tN-RAr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="workInProgress" translatesAutoresizingMaskIntoConstraints="NO" id="C3g-iO-Yo4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="C3g-iO-Yo4" secondAttribute="trailing" id="B7x-1g-bds"/>
+                            <constraint firstItem="C3g-iO-Yo4" firstAttribute="leading" secondItem="kbJ-tN-RAr" secondAttribute="leading" id="Ee9-D3-Tj0"/>
+                            <constraint firstItem="C3g-iO-Yo4" firstAttribute="top" secondItem="kbJ-tN-RAr" secondAttribute="top" id="bP4-YW-PaM"/>
+                            <constraint firstItem="XQe-Gw-cLQ" firstAttribute="bottom" secondItem="C3g-iO-Yo4" secondAttribute="bottom" id="tsZ-j4-dnz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XQe-Gw-cLQ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vOi-Sa-9XE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="whG-ps-ged" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2038" y="821"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="u0M-ho-kxG">
+            <objects>
+                <viewController id="uIV-6U-nXB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UOr-v5-Ygg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="workInProgress" translatesAutoresizingMaskIntoConstraints="NO" id="rAG-xb-2Wd">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5XE-Ca-gZg" firstAttribute="trailing" secondItem="rAG-xb-2Wd" secondAttribute="trailing" id="Dpj-Sj-n70"/>
+                            <constraint firstItem="5XE-Ca-gZg" firstAttribute="bottom" secondItem="rAG-xb-2Wd" secondAttribute="bottom" id="GwZ-dx-okj"/>
+                            <constraint firstItem="rAG-xb-2Wd" firstAttribute="top" secondItem="5XE-Ca-gZg" secondAttribute="top" id="Jqc-fu-5sj"/>
+                            <constraint firstItem="rAG-xb-2Wd" firstAttribute="leading" secondItem="5XE-Ca-gZg" secondAttribute="leading" id="Vwl-Jq-P1X"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5XE-Ca-gZg"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="TqT-2e-vnA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BDi-AO-o0J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3305" y="821"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="AjC-xh-fNJ">
             <objects>
@@ -217,6 +271,7 @@
                                 <state key="normal" title="Clock In/Out" backgroundImage="clockInOut"/>
                                 <connections>
                                     <action selector="clockInOutPressed:" destination="PRX-C2-Rpz" eventType="touchUpInside" id="AGS-mV-prh"/>
+                                    <segue destination="pJV-av-Jjc" kind="show" id="8lU-Id-XBx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2x-eK-aWU">
@@ -228,6 +283,7 @@
                                 <state key="normal" title="Scedule" backgroundImage="schedule"/>
                                 <connections>
                                     <action selector="schedulePressed:" destination="PRX-C2-Rpz" eventType="touchUpInside" id="s37-Nl-rO1"/>
+                                    <segue destination="gEi-UR-aDV" kind="show" id="nja-47-I1a"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clock In/Out" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNN-LG-II2">
@@ -262,6 +318,7 @@
                                 <state key="normal" title="Panic" backgroundImage="panic"/>
                                 <connections>
                                     <action selector="panicPressed:" destination="PRX-C2-Rpz" eventType="touchUpInside" id="qyL-Y2-4Lw"/>
+                                    <segue destination="uIV-6U-nXB" kind="show" id="G7s-c5-F7F"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flash Light" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZT-4j-ZW9">
@@ -307,6 +364,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xCs-mn-x71" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2776.8000000000002" y="94.902548725637189"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="iHu-zV-AUK">
+            <objects>
+                <viewController id="gEi-UR-aDV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q8U-Uu-ytc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="workInProgress" translatesAutoresizingMaskIntoConstraints="NO" id="dth-yU-NaW">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dth-yU-NaW" firstAttribute="leading" secondItem="q8U-Uu-ytc" secondAttribute="leading" id="Wah-Pf-gX1"/>
+                            <constraint firstItem="dth-yU-NaW" firstAttribute="top" secondItem="VCM-7N-nXh" secondAttribute="top" id="aZx-NG-H9O"/>
+                            <constraint firstAttribute="bottom" secondItem="dth-yU-NaW" secondAttribute="bottom" id="b8l-U5-Bix"/>
+                            <constraint firstAttribute="trailing" secondItem="dth-yU-NaW" secondAttribute="trailing" id="fqH-tw-1lA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VCM-7N-nXh"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rS7-Am-pnE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pcq-pR-1ne" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3958" y="98"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="eZU-tH-zId">
@@ -365,6 +449,33 @@
             </objects>
             <point key="canvasLocation" x="880.79999999999995" y="94.902548725637189"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="7Hj-SG-PPV">
+            <objects>
+                <viewController id="ZiE-rq-Bwf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w7b-HU-EiO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="workInProgress" translatesAutoresizingMaskIntoConstraints="NO" id="AHb-3O-iko">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="cAo-tu-xQg" firstAttribute="bottom" secondItem="AHb-3O-iko" secondAttribute="bottom" id="95t-Uf-Gf2"/>
+                            <constraint firstItem="AHb-3O-iko" firstAttribute="top" secondItem="cAo-tu-xQg" secondAttribute="top" id="W6w-Fn-a49"/>
+                            <constraint firstItem="AHb-3O-iko" firstAttribute="leading" secondItem="cAo-tu-xQg" secondAttribute="leading" id="w10-TE-3mX"/>
+                            <constraint firstItem="cAo-tu-xQg" firstAttribute="trailing" secondItem="AHb-3O-iko" secondAttribute="trailing" id="wgB-Gy-JXb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cAo-tu-xQg"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6O8-YD-az2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Nv-Cq-8hi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3305" y="821"/>
+        </scene>
     </scenes>
     <resources>
         <image name="clockInOut" width="300" height="300"/>
@@ -372,5 +483,6 @@
         <image name="logo" width="461.5" height="157.5"/>
         <image name="panic" width="275" height="183"/>
         <image name="schedule" width="896" height="518"/>
+        <image name="workInProgress" width="560" height="292"/>
     </resources>
 </document>
