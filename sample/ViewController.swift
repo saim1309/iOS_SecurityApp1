@@ -18,7 +18,8 @@ class ViewController: UIViewController {
 
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
+        
         //assigning delegates to UITextFields
         username.delegate = self
         password.delegate = self

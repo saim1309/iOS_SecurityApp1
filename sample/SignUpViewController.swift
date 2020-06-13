@@ -163,7 +163,7 @@ class SignUpViewController: UIViewController {
         let confirmPasswordStr:String = confirmPassword.text!;
         
         //validationPassed variable stores true of input passed all validations
-        var validationPassed:Bool =  validateInput(firstNameStr: firstNameStr,lastNameStr: lastNameStr,emailStr: emailStr,passwordStr: passwordStr,confirmPasswordStr: confirmPasswordStr);
+        let validationPassed:Bool =  validateInput(firstNameStr: firstNameStr,lastNameStr: lastNameStr,emailStr: emailStr,passwordStr: passwordStr,confirmPasswordStr: confirmPasswordStr);
         
         if(validationPassed){
             print("firstName: \(firstName.text!)\nlastName: \(lastName.text!)\nemail: \(email.text!)\npassword: \(password.text!)\nconfirmpassword: \(confirmPassword.text!)");

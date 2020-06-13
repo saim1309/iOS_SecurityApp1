@@ -11,10 +11,20 @@ import AVFoundation
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }//end of viewDidLoad
+    
+    
+    //function to remove keyboard when touched outside text fields
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        searchBar.resignFirstResponder()
+        
+    }
+    
     
     //function to switch on/off flash light
     func toggleFlash() {
@@ -64,5 +74,13 @@ class HomeViewController: UIViewController {
     
     @IBAction func panicPressed(_ sender: UIButton) {
         print("panic pressed")
+    }
+}
+
+//dissapears keyboard when touched outside textField
+extension HomeViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchBar.resignFirstResponder()
+        return true
     }
 }
