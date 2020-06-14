@@ -9,21 +9,25 @@
 import UIKit
 import AVFoundation
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
         
     }//end of viewDidLoad
     
-    
     //function to remove keyboard when touched outside text fields
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         searchBar.resignFirstResponder()
-        
     }
+    //function to remove keyboard when touched outside text fields
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        searchBar.resignFirstResponder()
+//
+//    }
     
     
     //function to switch on/off flash light
@@ -77,10 +81,10 @@ class HomeViewController: UIViewController {
     }
 }
 
-//dissapears keyboard when touched outside textField
-extension HomeViewController: UITextFieldDelegate{
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchBar.resignFirstResponder()
-        return true
-    }
-}
+//dissapears keyboard when 'return' is pressed on keyboard
+//extension HomeViewController: UITextFieldDelegate{
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        searchBar.resignFirstResponder()
+//        return true
+//    }
+//}

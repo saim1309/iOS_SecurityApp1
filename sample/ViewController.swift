@@ -14,9 +14,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var password: UITextField!
     
-
-
-    
     override func viewDidLoad() {
         super.viewDidLoad();
         
@@ -28,8 +25,14 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil);
-        
+
     }//end of viewLoad
+    
+    //function to remove keyboard when touched outside text fields
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        username.resignFirstResponder()
+        password.resignFirstResponder()
+    }
     
     
     //stop listening to keyboard events
@@ -48,7 +51,7 @@ class ViewController: UIViewController {
             }
         }
         return false;
-    }
+    }//end of check user
     
     //IBAction function for login button
     @IBAction func loginPressed(_ sender: UIButton) {
@@ -69,7 +72,7 @@ class ViewController: UIViewController {
             showAlert(title: "Login Failed", message: "Check your email and password!")
         }
         
-    }
+    }// end of loginPressed
     
     //custom alert function created
     func showAlert(title:String, message:String) {
@@ -80,12 +83,12 @@ class ViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    //function to remove keyboard when touched outside text fields
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //keyboard goes back when touched outside
-        username.resignFirstResponder()
-        password.resignFirstResponder()
-    }
+//    //function to remove keyboard when touched outside text fields
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        //keyboard goes back when touched outside
+//        username.resignFirstResponder()
+//        password.resignFirstResponder()
+//    }
     
     //function to find the keyboard size and shifting the UI accordingly
     @objc func keyboardWillChange(notification: Notification){
@@ -101,10 +104,10 @@ class ViewController: UIViewController {
         else{
             view.frame.origin.y = 0
         }
-    }
+    }//end of keyboardWillChange function
     
 }
-//dissapears keyboard when touched outside textField
+//dissapears keyboard when 'return' is pressed on keyboard
 extension ViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

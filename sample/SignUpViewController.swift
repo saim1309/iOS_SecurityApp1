@@ -64,9 +64,17 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    //function to remove keyboard when touched outside text fields
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        firstName.resignFirstResponder()
+        lastName.resignFirstResponder()
+        password.resignFirstResponder()
+        confirmPassword.resignFirstResponder()
+        email.resignFirstResponder()
+    }
     
     //function to register user
-    func regiterUser(username:String, password:String){
+    func registerUser(username:String, password:String){
         //variable to check if user is registered
         var isAlreadyRegistered:Bool = false;
         //iterating through users dictionary
@@ -95,7 +103,7 @@ class SignUpViewController: UIViewController {
 //            print("key: \(key) and its value: \(value)");
 //        }
 
-    }
+    }//end of register user function
     
 
     //custom alert function
@@ -169,7 +177,7 @@ class SignUpViewController: UIViewController {
             print("firstName: \(firstName.text!)\nlastName: \(lastName.text!)\nemail: \(email.text!)\npassword: \(password.text!)\nconfirmpassword: \(confirmPassword.text!)");
             
             //call register user function with email and password
-            regiterUser(username: emailStr, password: passwordStr);
+            registerUser(username: emailStr, password: passwordStr);
             
             //clear function called after successful register
             clearSignUpPage();
@@ -187,17 +195,17 @@ class SignUpViewController: UIViewController {
     }//end of function signUpPressed
     
     //function to remove keyboard when touched outside text fields
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        firstName.resignFirstResponder()
-        lastName.resignFirstResponder()
-        password.resignFirstResponder()
-        confirmPassword.resignFirstResponder()
-        email.resignFirstResponder()
-        
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        firstName.resignFirstResponder()
+//        lastName.resignFirstResponder()
+//        password.resignFirstResponder()
+//        confirmPassword.resignFirstResponder()
+//        email.resignFirstResponder()
+//
+//    }
 }
 
-//dissapears keyboard when touched outside textField
+//dissapears keyboard when 'return' is pressed on keyboard
 extension SignUpViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
